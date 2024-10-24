@@ -31,6 +31,7 @@ function Cart() {
 
 
   const handleCheckout = ()=> {
+     alert('Order placed succesfully.')
      dispatch(emptyCart())
      navigate('/')
   }
@@ -60,8 +61,8 @@ function Cart() {
                      <tr>
                      <td className='border border-teal-400 p-3'>{item.id}</td>
                      <td className='border border-teal-400 p-3'>{item.title}</td>
-                     <td className='border border-teal-400 p-3'><img src={item.image} alt=" no image" style={{width:'150px', height:'150px',objectFit:'cover',objectPosition:'top'}} /></td>
-                     <td className='border border-teal-400 p-3'>{item.price}</td>
+                     <td className='border border-teal-400 p-3'><img src={item.image} alt=" no image" style={{width:'100px', height:'100px',objectFit:'cover',objectPosition:'top'}} /></td>
+                     <td className='border border-teal-400 p-3'>$ {item.price}</td>
                      <td className='border border-teal-400 p-3'> <button className='bg-teal-900 p-3 text-white rounded' onClick={()=>dispatch(removeCartItem(item.id))}><FontAwesomeIcon icon={faTrash} /></button> </td>
                    </tr>
                  ))}
@@ -72,7 +73,7 @@ function Cart() {
                 <div className='p-5 shadow-lg'>
                   <h1 className='text-center text-3xl'>Cart Summery</h1>
                   <p className='mt-4  text-xl'>Total number of products :  {cartArray.length}</p>
-                  <p className='mt-2  text-xl'>GrandTotal : {total} </p>
+                  <p className='mt-2  text-xl'>GrandTotal : $ {total} </p>
                   <button className='w-full bg-green-600 text-white p-3 mt-4 hover:bg-white hover:border hover:border-green-600 hover:text-green-600' onClick={handleCheckout}>CheckOut</button>
                 </div>
             </div>

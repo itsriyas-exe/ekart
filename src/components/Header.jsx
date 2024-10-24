@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 function Header() {
 
   const [show,setShow] = useState(false)
-  const wishListArray = useSelector((state)=>state.Wishlist)
+  const wishlistArray = useSelector((state)=>state.Wishlist)
   const cartArray = useSelector((state)=>state.cartItem)
   
   
@@ -18,22 +18,53 @@ function Header() {
   }
   return (
     <>
-     <header className='w-full   pt-[20px] md:pt-[0px] h-[70px]  md:flex  justify-between items-center text-white px-[32px]'>
-      <div className='flex items-center w-full'>
-      <FontAwesomeIcon icon={faCartShopping} className='text-2xl' />
-       <Link to={'/'}> <h1 className='px-[20px] sm:text-2xl text-lg '>E-Kart</h1></Link>
-        <button onClick={showBar} className='border border-white px-[15px] py-[6px] rounded ms-auto md:hidden'><FontAwesomeIcon icon={faBars} /></button>
-      </div>
-    { show && <div className='px-[20px] button-section md:hidden    flex  md:w-[300px]'>
-       <Link to={'/wishlist'}> <button className='bg-white text-teal-600 font-semibold px-[10px] py-[9px] hover:bg-teal-800   hover:text-white flex items-center   '><FontAwesomeIcon icon={faHeart} />&nbsp; Wishlist <span className='border border-teal-800    px-[6px] rounded py-[3px]  hover:text-white  hover:border-white  ml-[6px]'>{wishListArray?.length}</span></button></Link>
-      <Link to={'/cart'}>  <button className='bg-white text-teal-600 font-semibold px-[10px] py-[9px] ml-[10px]  hover:bg-teal-800   hover:text-white  flex items-center '> <FontAwesomeIcon icon={faCartShopping}   />Cart <span className=' border border-teal-800   ml-[6px]   px-[6px] rounded py-[3px]  hover:text-white  hover:border-white'>{cartArray?.length}</span> </button></Link>
-      </div>}
+      <header className="bg-teal-700 text-white p-4 w-full fixed">
+      <div className="container mx-auto md:flex justify-between items-center">
+        {/* Logo Section */}
+        <div className="flex items-center w-full px-5">
+          <span className="text-3xl mr-2">🛒</span>
+          <Link to={'/'}><h1 className="text-lg md:text-xl font-bold me-3">Ekart</h1></Link>
+          <button onClick={showBar} className='ms-auto md:hidden'><FontAwesomeIcon icon={faBars} /></button>
+        </div>
 
-      <div className='px-[20px] button-section hidden    md:flex  '>
-       <Link to={'/wishlist'}> <button className='bg-white text-teal-600 font-semibold px-[10px] py-[9px] hover:bg-teal-800   hover:text-white flex items-center   '><FontAwesomeIcon icon={faHeart} /> Wishlist <span className='border border-teal-800    px-[6px] rounded py-[3px]  hover:text-white  hover:border-white  ml-[6px]'>{wishListArray?.length}</span></button></Link>
-       <Link to={'/cart'}> <button className='bg-white text-teal-600 font-semibold px-[10px] py-[9px] ml-[10px]  hover:bg-teal-800   hover:text-white  flex items-center '> <FontAwesomeIcon icon={faCartShopping}   /> Cart <span className=' border border-teal-800   ml-[6px]   px-[6px] rounded py-[3px]  hover:text-white  hover:border-white'>{cartArray?.length}</span> </button></Link>
+        {/* Wishlist and Cart Section */}
+        { show &&
+          <div className="flex space-x-2 md:space-x-4 md:hidden mt-4">
+          <Link to={'/wishlist'}>
+            <button className="flex items-center border border-white rounded-lg px-2 py-1 md:px-4 md:py-2 space-x-1 md:space-x-2 hover:bg-white hover:text-teal-600">
+              <span className="text-red-500">❤️</span>
+              <span className="md:hidden sm:inline">Wishlist</span>
+              <span className="bg-white text-gray-900 rounded-full px-1 md:px-2 py-0.5 text-xs md:text-sm">{wishlistArray?.length}</span>
+            </button>
+          </Link>
+
+          <Link to={'/cart'}>
+            <button className="flex items-center border border-white rounded-lg px-2 py-1 md:px-4 md:py-2 space-x-1 md:space-x-2  hover:bg-white hover:text-teal-600">
+              <span className="text-green-500">🛒</span>
+              <span className="md:hidden sm:inline">Cart</span>
+              <span className="bg-white text-gray-900 rounded-full px-1 md:px-2 py-0.5 text-xs md:text-sm">{cartArray?.length}</span>
+            </button>
+          </Link>
+        </div>}
+        <div className="md:flex space-x-2 md:space-x-4 hidden">
+          <Link to={'/wishlist'}>
+            <button className="flex items-center border border-white rounded-lg px-2 py-1 md:px-4 md:py-2 space-x-1 md:space-x-2 hover:bg-white hover:text-teal-600">
+              <span className="text-red-500">❤️</span>
+              <span className="hidden sm:inline">Wishlist</span>
+              <span className="bg-white text-gray-900 rounded-full px-1 md:px-2 py-0.5 text-xs md:text-sm">{wishlistArray?.length}</span>
+            </button>
+          </Link>
+
+          <Link to={'/cart'}>
+            <button className="flex items-center border border-white rounded-lg px-2 py-1 md:px-4 md:py-2 space-x-1 md:space-x-2  hover:bg-white hover:text-teal-600">
+              <span className="text-green-500">🛒</span>
+              <span className="hidden sm:inline">Cart</span>
+              <span className="bg-white text-gray-900 rounded-full px-1 md:px-2 py-0.5 text-xs md:text-sm">{cartArray?.length}</span>
+            </button>
+          </Link>
+        </div>
       </div>
-     </header>
+    </header>
     </>
   )
 }

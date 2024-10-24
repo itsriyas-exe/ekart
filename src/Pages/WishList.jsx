@@ -20,7 +20,7 @@ function WishList() {
 
   return (
     <>
-   <h1 className='text-center text-2xl mt-[50px] font-bold'>Wishlist</h1>
+   <h1 className='pt-32 text-center text-4xl font-bold'>Wishlist</h1>
    {wishlistArray?.length > 0 ? <main className='px-[40px] mt-[50px] mb-[30px] md:grid grid-cols-4'> 
      { wishlistArray.map((item)=> (
          <div className='  p-[20px] '>

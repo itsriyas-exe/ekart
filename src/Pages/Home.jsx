@@ -12,11 +12,11 @@ function Home() {
   const dispatch = useDispatch()
   
   return (
-    <main className='px-[40px] mt-[50px] mb-[30px] md:grid grid-cols-4'> 
+    <main className='pt-40 mb-10 px-10 md:grid grid-cols-4'> 
       { data?.length > 0 &&
       data?.map((item)=>(
         <div className='  px-[20px] py-[30px]'>
-        <div className='w-full h-[360px] flex justify-center items-center'>
+        <div className='w-full h-80 flex justify-center items-center border border-gray-100 shadow-lg'>
           <img src={item?.image} alt="" className='w-[80%] h-[80%] rounded'   />
         </div>
         <h5 className=' pt-[10px]' style={{fontWeight:'bold'}}>{item?.title.slice(0,25)}</h5>

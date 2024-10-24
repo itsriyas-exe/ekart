@@ -12,8 +12,8 @@ function Footer() {
     <>
      <footer className='w-full p-[30px]'>
         <section className='p-[20px]'>
-          <h1 className='text-xl pb-[20px]'><FontAwesomeIcon icon={faCartShopping} />E-Cart</h1>
-          <p>a user-friendly online platform for customers to browse and purchase a wide range of products, from clothing and electronics to home goods and accessories. It features organized categories, product descriptions, and customer reviews to enhance the shopping experience.</p>
+          <h1 className='text-xl pb-[20px]'><FontAwesomeIcon icon={faCartShopping} />&nbsp;E-Kart</h1>
+          <p> Ekart logistics or Ekart courier is an Indian courier delivery services company, headquartered in Bangalore, Karnataka. A subsidiary of electronic commerce company Flipkart Pvt. Ltd., it is run by Instakart services Pvt. Ltd. Ekart delivers around 10 million shipments a month.</p>
         </section>
         <section  className='p-[20px] flex flex-col items-center justify-start'> 
           <h1 className='text-xl pb-[35px]'>Links</h1>
